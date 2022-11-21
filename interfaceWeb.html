@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    .button1 {background-color: #4CAF50;} /* Green */
+    .button2 {background-color: #008CBA;} /* Blue */
+    </style>
+    </head>
+    
+    <body>
+ 
+   
+    <button class="button button1" onclick="Somatorio()">Somatório</button> <br><br>
+
+    <button class="button button2" onclick="Fibonacci()">Fibonacci</button> <br><br>
+
+    <button class="button button1" onclick="MDC()">MDC</button> <br><br>
+
+    <button class="button button2" onclick="Primo()">Primo</button> <br><br>
+
+    <button class="button button1" onclick="QuickSort()">Quicksort</button> <br><br>
+
+    <button class="button button2" onclick="Contagem()">Contagem</button><br><br>
+    
+    </body>
+
+<script>
+
+function Somatorio() {
+    var numero;
+    var soma = 0;
+        for (var i = 0; i < 2; i++) {
+            numero = Number(prompt("Entre com o numero: "));
+            soma+= numero;
+        }
+
+    alert("A soma dos positivos eh: " + soma);
+}
+
+function Fibonacci() {
+       
+        fibonacci = [0, 1]
+        for (i = 2; i < 10; i++) {
+            fibonacci.push(fibonacci[(i - 1)] + fibonacci[(i - 2)])
+        }
+        alert('Sequencia dos 10 primeiros numeros:' + '\n' + '\n' +fibonacci)
+    }
+
+function MDC(num1, num2) {
+
+        var resto;
+    	num1 = prompt('Digite dois numeros pra saber seu MDC').split(' ')
+        num2 = prompt('Digite dois numeros pra saber seu MDC').split(' ')
+        var resto;
+
+        do {
+        resto = num1 % num2;
+
+        num1 = num2;
+        num2 = resto;
+
+        console.log(num1);
+
+        } while (resto != 0);
+
+        alert('MDC dos numeros eh:' + '\n' + '\n' +num1)
+    }
+
+function Primo(numero) {
+
+var divisores = 0;
+
+function ePrimo(num) {
+for (var count = 1; count <= numero; count++){
+if (numero % count == 0){
+    divisores++;
+}
+}
+
+if (divisores == 2){
+alert('O numero informado eh primo!');
+} else {
+alert('O numero informado nao eh primo!')
+}}
+    
+var numero = prompt('Digite um numero para saber se ele e primo')
+ePrimo(numero)
+
+}
+
+function QuickSort() {
+
+function quicksort1(array) {
+    if (array.length <= 1) {
+      return array;
+    }
+  
+    var pivot = array[0];
+    
+    var left = []; 
+    var right = [];
+  
+    for (var i = 1; i < array.length; i++) {
+      array[i] < pivot ? left.push(array[i]) : right.push(array[i]);
+    }
+  
+    return quicksort1(left).concat(pivot, quicksort1(right));
+  };
+  
+  var unsorted = [23, 45, 16, 37, 3, 99, 22];
+  var sorted = quicksort1(unsorted);
+  
+  arr = [23, 45, 16, 37, 3, 99, 22];
+  alert('Sequencia antes do Quicksort: ' + arr)
+  alert('Sequencia do array ordenada depois do Quicksort: ' + sorted)
+  
+}
+
+function Contagem() {
+        quantInts = 0
+        num = prompt('Digite numeros para saber quantos inteiros ha entre esses numeros').split(' ')
+        for(i=0;i<num.length;i++) {
+            if(!(num[i].includes('.') || num[i].includes(','))) quantInts++
+        }
+        alert('A quantidade de itens presentes na lista eh:' + '\n' + '\n' +quantInts)
+    }
+
+
+</script>
+</html>
